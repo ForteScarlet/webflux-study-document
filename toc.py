@@ -10,18 +10,20 @@ PRE = '''# Webflux
 
 '''
 
+def spc(str):
+    return str.replace(' ', '%20')
+
 def resolveReadme():
 
     lines = []
     for root, dirs, files in os.walk(r'doc'):
         space = 0
         if root != 'doc':
-            root = root.replace(' ', '%20')
-            dirname = root.split('/')[-1].replace(' ', '%20')
-            lines.append('- [%s](%s)' % (dirname, root))
+            dirname = root.split('/')[-1]
+            lines.append('- [%s](%s)' % (dirname, spc(root)))
             lines.append('\n')
             for f in files:
-                lines.append('    - [%s : %s](%s/%s)' % (dirname, f, root, f))
+                lines.append('    - [%s](%s/%s)' % (f.replace('.md', ''), spc(root), spc(f)))
                 lines.append('\n')
 
     return lines
