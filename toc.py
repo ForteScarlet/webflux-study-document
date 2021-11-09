@@ -30,12 +30,11 @@ def resolveReadme():
 
 
 if __name__ == '__main__':
-    source = []
     with open('.README.md', 'r') as sourceReadme:
         source = sourceReadme.readlines()
 
     strLine = resolveReadme()
-    with open('README.md', 'w+') as readme:
+    with open('README.md', 'w') as readme:
         readme.writelines(source)
         readme.writelines('## 索引\n')
         readme.writelines(strLine)
