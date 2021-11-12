@@ -10,11 +10,12 @@ PRE = '''# Webflux
 
 '''
 
-def spc(str):
-    return str.replace(' ', '%20')
+
+def spc(s):
+    return s.replace(' ', '%20')
+
 
 def resolveReadme():
-
     lines = []
     for root, dirs, files in os.walk(r'doc'):
         space = 0
